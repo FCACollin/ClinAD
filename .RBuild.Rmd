@@ -1,0 +1,158 @@
+
+This documents in a draft for keeping track of instruction which
+were necessary to shape, build, test, document, check the package.
+
+<https://bookdown.org/rdpeng/RProgDA/data-within-a-package.html>
+
+# Create the package structure
+
+```{r}
+# TODO https://rmflight.github.io/posts/2014/07/vignetteAnalysis.html
+options(
+  usethis.description = list(
+    `Authors@R` = 'person(
+    given  = "François",
+    family = "Collin",
+    email  = "fca.collin@gmail.com",
+    role   = c("aut", "cre", "cph"),
+    comment = c(
+      ORCID = "0000-0003-0524-5755"
+    )
+    )',
+  URL      = "https://FCACollin.github.io/Latarnia",
+  License  = "CC BY-NC-ND 4.0",
+  Language =  "en",
+  LazyData = "true",
+  Version  = numeric_version("0.1.0-1"),
+  Title    = "ClinAD: Standard Management of Clinical Data",
+  Description = paste(
+    "A S4-base class for handling clinical data in a standardise way."
+  )
+)
+)
+devtools::create(".")
+
+devtools::test()
+usethis::use_git()
+usethis::use_pkgdown()
+```
+
+# Append DESCRIPION file
+
+```{r}
+usethis::use_package("testthat", type = "Suggests") 
+usethis::use_package("lintr", type = "Suggests") 
+# usethis::use_package("knitr", type = "Suggests") 
+# usethis::use_package("rmarkdown", type = "Suggests") 
+# usethis::use_package("lme4", type = "Suggests") 
+# usethis::use_package("emmeans", type = "Suggests") 
+# usethis::use_package("Hmisc") 
+# usethis::use_package("corrplot") 
+# # usethis::use_package("viridis") 
+# usethis::use_package("car") 
+# # usethis::use_package("multcompView") 
+# usethis::use_package("multcomp") 
+# usethis::use_package("tidyr") 
+# usethis::use_package("FactoMineR") 
+usethis::use_package("methods") 
+# usethis::use_package("kableExtra") 
+# usethis::use_package("reshape2") 
+# usethis::use_package("missMDA") 
+# usethis::use_package("ggplot2") 
+# usethis::use_package("styler")
+# # usethis::use_package("ggthemr", type = "Suggests")
+# # usethis::use_package("shiny")
+# # usethis::use_package("shinydashboard")
+# usethis::use_package("Rdpack")
+# usethis::use_package("dplyr", type = "Suggests")
+
+# usethis::use_package("ggplot2", type = "Suggests") 
+# usethis::use_vignette("demographics")
+##  <https://community.rstudio.com/t/devtools-check-error-with-vignette-but-vignette-can-be-knitted-without-problem/55962/2>
+ 
+```
+
+# Testing
+
+```{r}
+devtools::test()
+# devtools::check(check_dir = ".")
+```
+
+```{r}
+lintr::lint_package(
+  linters = lintr::with_defaults(
+    semicolon_linter = lintr::semicolon_terminator_linter(),
+    line_length_linter = lintr::line_length_linter(20)
+    ),
+  exclusions = list("inst/doc/creating_linters.R" = 1, "inst/example/bad.R")
+)
+```
+
+
+```{r}
+# usethis::use_data_raw(name = "sdtm")
+# usethis::use_data_raw(name = "adam")
+```
+
+```{r}
+devtools::load_all()
+```
+
+Usual checks before commit.
+
+```{r}
+devtools::document()
+devtools::test()
+devtools::check()
+pkgdown::build_site()
+
+```
+
+```{r}
+# "cd inst/TLG/.source ; bash .build.sh")
+# usethis::use_vignette("clinical_parameters")
+
+devtools::document()
+devtools::test()
+devtools::check()
+devtools::build_vignettes() 
+devtools::install(build_vignettes = TRUE, upgrade = "never")
+devtools::build()
+library(RPack.Diabete.microRNA)
+
+```
+
+```{r}
+library(RPack.Diabete.microRNA)
+vignette("clinical_parameters", package = "RPack.Diabete.microRNA")
+vignette("data_imputation", package = "RPack.Diabete.microRNA")
+```
+
+```{r}
+# Test Rdpack
+install.packages("Rdpack")
+# Applied:
+# https://geobosh.github.io/Rdpack/
+vignette("Inserting_bibtex_references", package = "Rdpack")
+```
+
+```{r}
+devtools::build(binary = TRUE)
+```
+
+```{r}
+library(RPack.Diabete.microRNA)
+sdtm
+adsl
+adlb
+advs
+SDTM
+labelling
+```
+
+
+```{r}
+```
+
+

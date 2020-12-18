@@ -1,0 +1,18 @@
+.Rhistory
+.RData
+.Rproj.user
+# ignore output
+output*
+
+# ignore R cached dir
+*cache*
+
+# ignore vim cache
+*.swp
+
+# ignore drafts
+*draft*
+
+# Ignore bibtex bakup files.
+*.bib.bak
+docs

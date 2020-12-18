@@ -1,0 +1,21 @@
+Package: ClinAD
+Title: ClinAD: Standard Management of Clinical Data
+Version: 0.1.0.1
+Authors@R: 
+    person(given = "François",
+           family = "Collin",
+           role = c("aut", "cre", "cph"),
+           email = "fca.collin@gmail.com",
+           comment = c(ORCID = "0000-0003-0524-5755"))
+Description: A S4-base class for handling clinical data in a
+    standardise way.
+License: CC BY-NC-ND 4.0
+URL: https://FCACollin.github.io/Latarnia
+Encoding: UTF-8
+Language: en
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat,
+    lintr
