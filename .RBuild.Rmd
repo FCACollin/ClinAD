@@ -63,7 +63,7 @@ usethis::use_package("methods")
 # # usethis::use_package("ggthemr", type = "Suggests")
 # # usethis::use_package("shiny")
 # # usethis::use_package("shinydashboard")
-# usethis::use_package("Rdpack")
+usethis::use_package("Rdpack")
 # usethis::use_package("dplyr", type = "Suggests")
 
 # usethis::use_package("ggplot2", type = "Suggests") 
@@ -91,7 +91,8 @@ lintr::lint_package(
 
 
 ```{r}
-# usethis::use_data_raw(name = "sdtm")
+usethis::use_data_raw(name = "sdtm")
+source("data-raw/sdtm.R")
 # usethis::use_data_raw(name = "adam")
 ```
 
@@ -106,11 +107,9 @@ devtools::document()
 devtools::test()
 devtools::check()
 pkgdown::build_site()
-
 ```
 
 ```{r}
-# "cd inst/TLG/.source ; bash .build.sh")
 # usethis::use_vignette("clinical_parameters")
 
 devtools::document()
@@ -119,7 +118,6 @@ devtools::check()
 devtools::build_vignettes() 
 devtools::install(build_vignettes = TRUE, upgrade = "never")
 devtools::build()
-library(RPack.Diabete.microRNA)
 
 ```
 
