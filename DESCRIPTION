@@ -18,9 +18,18 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat,
-    lintr
+    lintr,
+    knitr,
+    rmarkdown
 Depends: 
     R (>= 2.10)
 Imports: 
-    Rdpack
+    Rdpack,
+    methods
 RdMacros: Rdpack
+VignetteBuilder: knitr
+Collate:
+    'domain.R'
+    'accessor.R'
+    'class_dm.R'
+    'data_sdtm.R'

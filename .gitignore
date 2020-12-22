@@ -15,3 +15,4 @@ output*
 
 # Ignore bibtex bakup files.
 *.bib.bak
+inst/doc

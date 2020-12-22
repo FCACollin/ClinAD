@@ -86,6 +86,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/dm.html">dm</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -112,14 +124,45 @@
     <div id="clinad-0-1-0-1" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.0-1">
 <a href="#clinad-0-1-0-1" class="anchor"></a>ClinAD 0.1.0-1</h1>
-<div id="new" class="section level2">
+<div id="data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new" class="anchor"></a>New</h2>
+<a href="#data" class="anchor"></a>Data</h2>
 <ul>
 <li>New data: <code>ae</code>, <code>dm</code>, <code>eg</code>, <code>lb</code>, <code>mh</code>, <code>pe</code>, <code>vs</code>.</li>
+</ul>
+</div>
+<div id="function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#function" class="anchor"></a>Function</h2>
+<ul>
+<li>New class <code>Domain</code>.</li>
+<li>New class <code>DM</code>.</li>
+<li>New generic and method <code>DM</code>:
+<ul>
+<li>
+<code>DM,data.frame,missing-method</code>.</li>
+<li>
+<code>DM,data.frame,data.frame-method</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="tests" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tests" class="anchor"></a>Tests</h2>
+<ul>
+<li>New: <code>lintr</code> test for code quality.</li>
+<li>New: [<code>accessor</code>] select a row.</li>
+<li>New: [<code>accessor</code>] select a col.</li>
+</ul>
+</div>
+<div id="package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#package" class="anchor"></a>Package</h2>
+<ul>
 <li>New citation management.</li>
 <li>New pkgdown for automated webpage.</li>
-<li>New <code>lintr</code> test for code quality.</li>
+<li>New Vignette: <code>dm</code>.</li>
 </ul>
 </div>
 </div>

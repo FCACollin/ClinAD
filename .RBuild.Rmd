@@ -42,6 +42,8 @@ usethis::use_pkgdown()
 ```{r}
 usethis::use_package("testthat", type = "Suggests") 
 usethis::use_package("lintr", type = "Suggests") 
+usethis::use_package("methods") 
+usethis::use_package("Rdpack")
 # usethis::use_package("knitr", type = "Suggests") 
 # usethis::use_package("rmarkdown", type = "Suggests") 
 # usethis::use_package("lme4", type = "Suggests") 
@@ -54,7 +56,6 @@ usethis::use_package("lintr", type = "Suggests")
 # usethis::use_package("multcomp") 
 # usethis::use_package("tidyr") 
 # usethis::use_package("FactoMineR") 
-usethis::use_package("methods") 
 # usethis::use_package("kableExtra") 
 # usethis::use_package("reshape2") 
 # usethis::use_package("missMDA") 
@@ -63,7 +64,6 @@ usethis::use_package("methods")
 # # usethis::use_package("ggthemr", type = "Suggests")
 # # usethis::use_package("shiny")
 # # usethis::use_package("shinydashboard")
-usethis::use_package("Rdpack")
 # usethis::use_package("dplyr", type = "Suggests")
 
 # usethis::use_package("ggplot2", type = "Suggests") 
@@ -72,28 +72,19 @@ usethis::use_package("Rdpack")
  
 ```
 
-# Testing
-
-```{r}
-devtools::test()
-# devtools::check(check_dir = ".")
-```
-
-```{r}
-lintr::lint_package(
-  linters = lintr::with_defaults(
-    semicolon_linter = lintr::semicolon_terminator_linter(),
-    line_length_linter = lintr::line_length_linter(20)
-    ),
-  exclusions = list("inst/doc/creating_linters.R" = 1, "inst/example/bad.R")
-)
-```
-
-
 ```{r}
 usethis::use_data_raw(name = "sdtm")
 source("data-raw/sdtm.R")
-# usethis::use_data_raw(name = "adam")
+```
+
+
+# Testing
+
+```{r}
+devtools::document()
+devtools::test()
+devtools::check()
+pkgdown::build_site()
 ```
 
 ```{r}
@@ -107,24 +98,16 @@ devtools::document()
 devtools::test()
 devtools::check()
 pkgdown::build_site()
-```
-
-```{r}
-# usethis::use_vignette("clinical_parameters")
-
-devtools::document()
-devtools::test()
-devtools::check()
 devtools::build_vignettes() 
+devtools::install(build_vignettes = FALSE, upgrade = "never")
 devtools::install(build_vignettes = TRUE, upgrade = "never")
 devtools::build()
-
 ```
 
 ```{r}
-library(RPack.Diabete.microRNA)
-vignette("clinical_parameters", package = "RPack.Diabete.microRNA")
-vignette("data_imputation", package = "RPack.Diabete.microRNA")
+library(ClinAD)
+# usethis::use_vignette("dm")
+vignette("dm", package = "RPack.Diabete.microRNA")
 ```
 
 ```{r}
