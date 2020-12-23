@@ -33,3 +33,4 @@ Collate:
     'accessor.R'
     'class_dm.R'
     'data_sdtm.R'
+    'expand_columns.R'

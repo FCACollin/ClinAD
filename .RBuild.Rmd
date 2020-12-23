@@ -81,6 +81,7 @@ source("data-raw/sdtm.R")
 # Testing
 
 ```{r}
+rm(list = ls())
 devtools::document()
 devtools::test()
 devtools::check()

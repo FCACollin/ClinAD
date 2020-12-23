@@ -131,9 +131,9 @@
 <li>New data: <code>ae</code>, <code>dm</code>, <code>eg</code>, <code>lb</code>, <code>mh</code>, <code>pe</code>, <code>vs</code>.</li>
 </ul>
 </div>
-<div id="function" class="section level2">
+<div id="functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#function" class="anchor"></a>Function</h2>
+<a href="#functions" class="anchor"></a>Functions</h2>
 <ul>
 <li>New class <code>Domain</code>.</li>
 <li>New class <code>DM</code>.</li>
@@ -145,6 +145,14 @@
 <code>DM,data.frame,data.frame-method</code>.</li>
 </ul>
 </li>
+<li>New <code>expand_columns</code>.</li>
+<li>New <code>Domain</code> accessors:
+<ul>
+<li><code>[(x, i, j)</code></li>
+<li><code>$(x, name)</code></li>
+<li><code>$(x, name) &lt;- value</code></li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="tests" class="section level2">
@@ -154,6 +162,9 @@
 <li>New: <code>lintr</code> test for code quality.</li>
 <li>New: [<code>accessor</code>] select a row.</li>
 <li>New: [<code>accessor</code>] select a col.</li>
+<li>New: [<code>expand_columns</code>] works with no overlap.</li>
+<li>New: [<code>expand_columns</code>] works with partial overlap.</li>
+<li>NEW: [<code>expand_columns</code>] works with total overlap.</li>
 </ul>
 </div>
 <div id="package" class="section level2">

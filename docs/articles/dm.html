@@ -87,62 +87,6 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://FCACollin.github.io/Latarnia">ClinAD</a></span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/domain.html">DM</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">dm</span><span class="op">)</span>
-<span class="co">#&gt; An object of class "DM"</span>
-<span class="co">#&gt; Slot "df":</span>
-<span class="co">#&gt;     STUDYID DOMAIN        USUBJID SUBJID    RFSTDTC    RFENDTC   SITEID</span>
-<span class="co">#&gt; 1 S-CDSK-01     DM CDISC01.100008 100008 2003-04-29 2003-10-12 Site-100</span>
-<span class="co">#&gt; 2 S-CDSK-01     DM CDISC01.100014 100014 2003-10-15 2004-03-29 Site-100</span>
-<span class="co">#&gt; 3 S-CDSK-01     DM CDISC01.200001 200001 2003-09-30 2004-02-02 Site-200</span>
-<span class="co">#&gt; 4 S-CDSK-01     DM CDISC01.200002 200002 2003-10-10 2004-03-28 Site-200</span>
-<span class="co">#&gt; 5 S-CDSK-01     DM CDISC01.200005 200005 2003-10-10 2004-03-28 Site-200</span>
-<span class="co">#&gt;      BRTHDTC AGE  AGEU SEX                      RACE                 ETHNIC</span>
-<span class="co">#&gt; 1 1930-08-05  72 YEARS   M                     OTHER NOT HISPANIC OR LATINO</span>
-<span class="co">#&gt; 2 1936-11-01  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO</span>
-<span class="co">#&gt; 3 1923-09-03  80 YEARS   F                  MULTIPLE NOT HISPANIC OR LATINO</span>
-<span class="co">#&gt; 4 1933-07-22  70 YEARS   F BLACK OR AFRICAN AMERICAN NOT HISPANIC OR LATINO</span>
-<span class="co">#&gt; 5 1937-02-22  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO</span>
-<span class="co">#&gt;      ARMCD                ARM COUNTRY</span>
-<span class="co">#&gt; 1 WONDER10 Miracle Drug 10 mg     USA</span>
-<span class="co">#&gt; 2 WONDER20 Miracle Drug 20 mg     USA</span>
-<span class="co">#&gt; 3  PLACEBO            Placebo     USA</span>
-<span class="co">#&gt; 4 WONDER10 Miracle Drug 10 mg     USA</span>
-<span class="co">#&gt; 5 SCRNFAIL     Screen Failure     USA</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "columns":</span>
-<span class="co">#&gt;           names</span>
-<span class="co">#&gt; STUDYID STUDYID</span>
-<span class="co">#&gt; DOMAIN   DOMAIN</span>
-<span class="co">#&gt; USUBJID USUBJID</span>
-<span class="co">#&gt; SUBJID   SUBJID</span>
-<span class="co">#&gt; RFSTDTC RFSTDTC</span>
-<span class="co">#&gt; RFENDTC RFENDTC</span>
-<span class="co">#&gt; SITEID   SITEID</span>
-<span class="co">#&gt; BRTHDTC BRTHDTC</span>
-<span class="co">#&gt; AGE         AGE</span>
-<span class="co">#&gt; AGEU       AGEU</span>
-<span class="co">#&gt; SEX         SEX</span>
-<span class="co">#&gt; RACE       RACE</span>
-<span class="co">#&gt; ETHNIC   ETHNIC</span>
-<span class="co">#&gt; ARMCD     ARMCD</span>
-<span class="co">#&gt; ARM         ARM</span>
-<span class="co">#&gt; COUNTRY COUNTRY</span>
-<span class="va">columns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-  row.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"STUDYID"</span>, <span class="st">"AGE"</span><span class="op">)</span>,
-  label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Study Identifier"</span>, <span class="st">"Age"</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">adsl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/domain.html">DM</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">dm</span>, columns <span class="op">=</span> <span class="va">columns</span><span class="op">)</span>
-    
-<span class="va">adsl</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">]</span>
-<span class="co">#&gt; An object of class "DM"</span>
-<span class="co">#&gt; Slot "df":</span>
-<span class="co">#&gt;   DOMAIN</span>
-<span class="co">#&gt; 1     DM</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Slot "columns":</span>
-<span class="co">#&gt;        label</span>
-<span class="co">#&gt; DOMAIN  &lt;NA&gt;</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

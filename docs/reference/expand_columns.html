@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • ClinAD</title>
+<title>Expand Columns — expand_columns • ClinAD</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Expand Columns — expand_columns" />
+<meta property="og:description" content="Row-binds to dataset while insuring column match." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,60 +116,69 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Expand Columns</h1>
+    
+    <div class="hidden name"><code>expand_columns.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Row-binds to dataset while insuring column match.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>expand_columns</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="accessor.html">`[`(<i>&lt;Domain&gt;</i>)</a></code> <code><a href="accessor.html">`$`(<i>&lt;Domain&gt;</i>)</a></code> <code><a href="accessor.html">`$&lt;-`(<i>&lt;Domain&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Accessor</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="data-sdtm.html">ae</a></code> <code><a href="data-sdtm.html">dm</a></code> <code><a href="data-sdtm.html">eg</a></code> <code><a href="data-sdtm.html">lb</a></code> <code><a href="data-sdtm.html">mh</a></code> <code><a href="data-sdtm.html">pe</a></code> <code><a href="data-sdtm.html">vs</a></code> </p>
-        </td>
-        <td><p>SDTM - Sample Study Dataset</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="domain.html">DM()</a></code> </p>
-        </td>
-        <td><p>S4 Class: domain</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="expand_columns.html">expand_columns()</a></code> </p>
-        </td>
-        <td><p>Expand Columns</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x, y</th>
+      <td><p>(<code>data.frame</code>)</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code>data.frame</code> with the columns from the two datasets.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The columns metadata must follow the column, even when transfered
+from a dataset to another one. However, while the <code>data.frame</code> format with
+row number equal to data column number, it is not garranty the two data
+sets have the same metadata composition. This function, makes sure of the
+column match between two datasets before row binding.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='va'>t1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  row.names <span class='op'>=</span> <span class='st'>"STUDYID"</span>, label <span class='op'>=</span> <span class='st'>"Study Identifier"</span>, names <span class='op'>=</span> <span class='st'>"name"</span>
+<span class='op'>)</span>
+<span class='co'># |        |label            |names |</span>
+<span class='co'># |:-------|:----------------|:-----|</span>
+<span class='co'># |STUDYID |Study Identifier |name  |</span>
+<span class='va'>t2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  row.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SUBJID"</span>, <span class='st'>"AGE"</span><span class='op'>)</span>,
+  names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Subject Identifier"</span>, <span class='st'>"Age"</span><span class='op'>)</span>
+<span class='op'>)</span>
+
+<span class='co'># |       |names              |</span>
+<span class='co'># |:------|:------------------|</span>
+<span class='co'># |SUBJID |Subject Identifier |</span>
+<span class='co'># |AGE    |Age                |</span>
+
+<span class='fu'>expand_columns</span><span class='op'>(</span><span class='va'>t1</span>, <span class='va'>t2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                    label              names
+#&gt; STUDYID Study Identifier               name
+#&gt; SUBJID              &lt;NA&gt; Subject Identifier
+#&gt; AGE                 &lt;NA&gt;                Age</div><div class='input'><span class='co'># |        |label            |names              |</span>
+<span class='co'># |:-------|:----------------|:------------------|</span>
+<span class='co'># |STUDYID |Study Identifier |name               |</span>
+<span class='co'># |SUBJID  |NA               |Subject Identifier |</span>
+<span class='co'># |AGE     |NA               |Age                |</span>
+
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
