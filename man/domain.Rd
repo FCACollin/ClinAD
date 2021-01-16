@@ -3,12 +3,21 @@
 \docType{class}
 \name{domain}
 \alias{domain}
+\alias{Domain}
+\alias{Domain,data.frame,missing-method}
+\alias{Domain,data.frame,data.frame-method}
 \alias{DM-class}
 \alias{DM}
 \alias{DM,data.frame,missing-method}
 \alias{DM,data.frame,data.frame-method}
 \title{S4 Class: domain}
 \usage{
+Domain(df, columns)
+
+\S4method{Domain}{data.frame,missing}(df, columns = NULL)
+
+\S4method{Domain}{data.frame,data.frame}(df, columns)
+
 DM(df, columns)
 
 \S4method{DM}{data.frame,missing}(df, columns = NULL)
@@ -25,6 +34,12 @@ S4 Class: domain
 }
 \section{Functions}{
 \itemize{
+\item \code{Domain}: generic Domain
+
+\item \code{Domain,data.frame,missing-method}: create Domain with missing column description.
+
+\item \code{Domain,data.frame,data.frame-method}: create Domain with column description.
+
 \item \code{DM-class}: class DM
 
 \item \code{DM}: generic DM
@@ -43,6 +58,15 @@ S4 Class: domain
 }}
 
 \examples{
+Domain(df = dm)
+
+
+columns <- data.frame(
+  row.names = c("STUDYID", "AGE"),
+  label = c("Study Identifier", "Age")
+)
+Domain(df = dm, columns = columns)
+
 DM(df = dm)
 
 

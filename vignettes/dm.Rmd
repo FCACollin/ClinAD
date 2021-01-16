@@ -19,5 +19,13 @@ library(ClinAD)
 ```
 
 ```{r}
+a <- lapply(
+  X = split(dm[1:3], f = seq_len(nrow(dm))),
+  FUN = Domain
+)
+
+do.call(rbind, lapply(a, slot, "df"))
+as.data.frame(t(unique(t(do.call(cbind, lapply(a, slot, "columns"))))))
+
 ```
 
