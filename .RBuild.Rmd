@@ -35,6 +35,7 @@ devtools::create(".")
 devtools::test()
 usethis::use_git()
 usethis::use_pkgdown()
+usethis::use_lifecycle()
 ```
 
 # Append DESCRIPION file
@@ -77,6 +78,15 @@ usethis::use_data_raw(name = "sdtm")
 source("data-raw/sdtm.R")
 ```
 
+# Document
+
+```{r}
+devtools::document()
+rmarkdown::render("README.Rmd")
+pkgdown::build_site()
+```
+
+
 
 # Testing
 
@@ -95,7 +105,6 @@ devtools::load_all()
 Usual checks before commit.
 
 ```{r}
-devtools::document()
 devtools::test()
 devtools::check()
 pkgdown::build_site()
@@ -133,10 +142,5 @@ SDTM
 labelling
 ```
 
-
-```{r}
-rmarkdown::render("README.Rmd")
-pkgdown::build_site()
-```
 
 
