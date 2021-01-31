@@ -127,7 +127,15 @@
     <p>S4 Class: domain</p>
     </div>
 
-    <pre class="usage"><span class='fu'>DM</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>columns</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>Domain</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>columns</span><span class='op'>)</span>
+
+<span class='co'># S4 method for data.frame,missing</span>
+<span class='fu'>Domain</span><span class='op'>(</span><span class='va'>df</span>, columns <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='co'># S4 method for data.frame,data.frame</span>
+<span class='fu'>Domain</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>columns</span><span class='op'>)</span>
+
+<span class='fu'>DM</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>columns</span><span class='op'>)</span>
 
 <span class='co'># S4 method for data.frame,missing</span>
 <span class='fu'>DM</span><span class='op'>(</span><span class='va'>df</span>, columns <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
@@ -152,6 +160,9 @@
 
     
 <ul>
+<li><p><code>Domain</code>: generic Domain</p></li>
+<li><p><code>Domain,data.frame,missing-method</code>: create Domain with missing column description.</p></li>
+<li><p><code>Domain,data.frame,data.frame-method</code>: create Domain with column description.</p></li>
 <li><p><code>DM-class</code>: class DM</p></li>
 <li><p><code>DM</code>: generic DM</p></li>
 <li><p><code>DM,data.frame,missing-method</code>: create DM with missing column description.</p></li>
@@ -169,7 +180,94 @@
 </dl>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>DM</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>dm</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'>Domain</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>dm</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; An object of class "Domain"
+#&gt; Slot "df":
+#&gt;     STUDYID DOMAIN        USUBJID SUBJID    RFSTDTC    RFENDTC   SITEID
+#&gt; 1 S-CDSK-01     DM CDISC01.100008 100008 2003-04-29 2003-10-12 Site-100
+#&gt; 2 S-CDSK-01     DM CDISC01.100014 100014 2003-10-15 2004-03-29 Site-100
+#&gt; 3 S-CDSK-01     DM CDISC01.200001 200001 2003-09-30 2004-02-02 Site-200
+#&gt; 4 S-CDSK-01     DM CDISC01.200002 200002 2003-10-10 2004-03-28 Site-200
+#&gt; 5 S-CDSK-01     DM CDISC01.200005 200005 2003-10-10 2004-03-28 Site-200
+#&gt;      BRTHDTC AGE  AGEU SEX                      RACE                 ETHNIC
+#&gt; 1 1930-08-05  72 YEARS   M                     OTHER NOT HISPANIC OR LATINO
+#&gt; 2 1936-11-01  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO
+#&gt; 3 1923-09-03  80 YEARS   F                  MULTIPLE NOT HISPANIC OR LATINO
+#&gt; 4 1933-07-22  70 YEARS   F BLACK OR AFRICAN AMERICAN NOT HISPANIC OR LATINO
+#&gt; 5 1937-02-22  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO
+#&gt;      ARMCD                ARM COUNTRY
+#&gt; 1 WONDER10 Miracle Drug 10 mg     USA
+#&gt; 2 WONDER20 Miracle Drug 20 mg     USA
+#&gt; 3  PLACEBO            Placebo     USA
+#&gt; 4 WONDER10 Miracle Drug 10 mg     USA
+#&gt; 5 SCRNFAIL     Screen Failure     USA
+#&gt; 
+#&gt; Slot "columns":
+#&gt;           names
+#&gt; STUDYID STUDYID
+#&gt; DOMAIN   DOMAIN
+#&gt; USUBJID USUBJID
+#&gt; SUBJID   SUBJID
+#&gt; RFSTDTC RFSTDTC
+#&gt; RFENDTC RFENDTC
+#&gt; SITEID   SITEID
+#&gt; BRTHDTC BRTHDTC
+#&gt; AGE         AGE
+#&gt; AGEU       AGEU
+#&gt; SEX         SEX
+#&gt; RACE       RACE
+#&gt; ETHNIC   ETHNIC
+#&gt; ARMCD     ARMCD
+#&gt; ARM         ARM
+#&gt; COUNTRY COUNTRY
+#&gt; </div><div class='input'>
+
+<span class='va'>columns</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  row.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"STUDYID"</span>, <span class='st'>"AGE"</span><span class='op'>)</span>,
+  label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Study Identifier"</span>, <span class='st'>"Age"</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='fu'>Domain</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>dm</span>, columns <span class='op'>=</span> <span class='va'>columns</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; An object of class "DM"
+#&gt; Slot "df":
+#&gt;     STUDYID DOMAIN        USUBJID SUBJID    RFSTDTC    RFENDTC   SITEID
+#&gt; 1 S-CDSK-01     DM CDISC01.100008 100008 2003-04-29 2003-10-12 Site-100
+#&gt; 2 S-CDSK-01     DM CDISC01.100014 100014 2003-10-15 2004-03-29 Site-100
+#&gt; 3 S-CDSK-01     DM CDISC01.200001 200001 2003-09-30 2004-02-02 Site-200
+#&gt; 4 S-CDSK-01     DM CDISC01.200002 200002 2003-10-10 2004-03-28 Site-200
+#&gt; 5 S-CDSK-01     DM CDISC01.200005 200005 2003-10-10 2004-03-28 Site-200
+#&gt;      BRTHDTC AGE  AGEU SEX                      RACE                 ETHNIC
+#&gt; 1 1930-08-05  72 YEARS   M                     OTHER NOT HISPANIC OR LATINO
+#&gt; 2 1936-11-01  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO
+#&gt; 3 1923-09-03  80 YEARS   F                  MULTIPLE NOT HISPANIC OR LATINO
+#&gt; 4 1933-07-22  70 YEARS   F BLACK OR AFRICAN AMERICAN NOT HISPANIC OR LATINO
+#&gt; 5 1937-02-22  66 YEARS   F                     WHITE NOT HISPANIC OR LATINO
+#&gt;      ARMCD                ARM COUNTRY
+#&gt; 1 WONDER10 Miracle Drug 10 mg     USA
+#&gt; 2 WONDER20 Miracle Drug 20 mg     USA
+#&gt; 3  PLACEBO            Placebo     USA
+#&gt; 4 WONDER10 Miracle Drug 10 mg     USA
+#&gt; 5 SCRNFAIL     Screen Failure     USA
+#&gt; 
+#&gt; Slot "columns":
+#&gt;                    label
+#&gt; STUDYID Study Identifier
+#&gt; DOMAIN              &lt;NA&gt;
+#&gt; USUBJID             &lt;NA&gt;
+#&gt; SUBJID              &lt;NA&gt;
+#&gt; RFSTDTC             &lt;NA&gt;
+#&gt; RFENDTC             &lt;NA&gt;
+#&gt; SITEID              &lt;NA&gt;
+#&gt; BRTHDTC             &lt;NA&gt;
+#&gt; AGE                  Age
+#&gt; AGEU                &lt;NA&gt;
+#&gt; SEX                 &lt;NA&gt;
+#&gt; RACE                &lt;NA&gt;
+#&gt; ETHNIC              &lt;NA&gt;
+#&gt; ARMCD               &lt;NA&gt;
+#&gt; ARM                 &lt;NA&gt;
+#&gt; COUNTRY             &lt;NA&gt;
+#&gt; </div><div class='input'>
+<span class='fu'>DM</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>dm</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; An object of class "DM"
 #&gt; Slot "df":
 #&gt;     STUDYID DOMAIN        USUBJID SUBJID    RFSTDTC    RFENDTC   SITEID
